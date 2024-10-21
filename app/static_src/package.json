@@ -1,0 +1,11 @@
+{
+    "name": "django-tailwindcss",
+    "version": "1.0.0",
+    "scripts": {
+        "start": "npm run dev",
+        "build": "NODE_ENV=production tailwindcss --postcss -i ../../assets/css/styles.css -o ../static/css/dist/styles.css --minify",
+        "dev": "NODE_ENV=development tailwindcss --postcss -i ../../assets/css/styles.css -o ../static/css/dist/styles.css --watch",
+        "tailwindcss": "node ../../node_modules/tailwindcss/lib/cli.js"
+    },
+    "license": "MIT"
+}
