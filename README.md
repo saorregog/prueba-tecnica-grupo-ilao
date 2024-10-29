@@ -48,7 +48,8 @@ We use [rye](https://rye.astral.sh/) for Python packages. Follow the installatio
 After installation, run the following commands:
 
 ```bash
-rye sync && rye run python manage.py runserver
+rye sync
+rye run python manage.py runserver
 ```
 
 ### JavaScript Packages
@@ -57,8 +58,18 @@ We use [npm](https://www.npmjs.com/) for JavaScript packages. Follow the install
 After installation, run the following command:
 
 ```bash
-npm install && rye run python manage.py tailwind start
+npm install
+rye run python manage.py tailwind start
 ```
+
+## Running with Docker
+
+```bash
+docker compose build
+docker compose up
+```
+
+You should be able to access to the homepage at <http://localhost:8000/>
 
 ## Tech Stack
 

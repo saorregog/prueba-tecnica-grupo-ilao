@@ -1,0 +1,38 @@
+services:
+  rye:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: >
+      sh -c "rye sync --no-lock"
+    volumes:
+      - .:/code
+  tailwind:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: >
+      sh -c "pnpm install &&
+             rye run python manage.py tailwind start"
+    tty: true
+    volumes:
+      - .:/code
+    depends_on:
+      rye:
+        condition: service_completed_successfully
+  web:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: >
+      sh -c "rye run python manage.py migrate --noinput | cat &&
+             rye run python manage.py runserver 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/code
+    depends_on:
+      tailwind:
+        condition: service_started
+      rye:
+        condition: service_completed_successfully

@@ -1,9 +1,41 @@
-.DS_store
+# File types
+*.csv
+*.dump
+*.gz
+*.log
+*.mo
+*.pyc
+*.sql
+*.swn
+*.swo
+*.swp
+*.code-workspace
+
+# OS files
+.DS_Store
+sprites-*.png
+ehthumbs.db
+Icon?
+Thumbs.db
+*~
+
+# Configuration files
+/app/local_settings.py
 
 # Folders
+.sass-cache
+.bundle-gems
+.coverage
+.scrapy
+.pytest_cache
+.pnpm-store
 .venv
 __pycache__
+/docs/build/
 /node_modules
 /static
+/reports
 /uploads
+/htmlcov
 /app/static/css/dist
+coverage.xml
