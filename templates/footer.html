@@ -1,0 +1,66 @@
+{% load static %}
+
+<footer>
+    <div class="py-9 bg-dark_bg">
+        <div class="mb-4 text-base font-bold text-white text-center">
+            ¿Podemos ayudarle?
+        </div>
+        <div class="flex flex-row justify-center">
+            <div class="mr-4 flex flex-col items-center">
+                <div
+                    class="h-[70px] w-[70px] mb-3 flex justify-center items-center bg-white rounded-full hover:cursor-pointer"
+                >
+                    <img
+                        src="{% static 'intercom.svg' %}"
+                        alt="chat"
+                        class="h-[32px] w-[32px]"
+                    />
+                </div>
+                <div class="text-sm font-bold text-white">CHAT</div>
+            </div>
+            <div class="flex flex-col items-center">
+                <div
+                    class="h-[70px] w-[70px] mb-3 flex justify-center items-center bg-white rounded-full hover:cursor-pointer"
+                >
+                    <img
+                        src="{% static 'phone.svg' %}"
+                        alt="call"
+                        class="h-[32px] w-[32px]"
+                    />
+                </div>
+                <div class="text-sm font-bold text-white">LLAMAR</div>
+            </div>
+        </div>
+    </div>
+    <div class="py-9 grid grid-cols-1 gap-4">
+        <div class="text-base font-bold text-dark_text text-center">
+            SOBRE NOSOTROS
+        </div>
+        <div class="text-base font-bold text-dark_text text-center">
+            MEDIDAS DE SEGURIDAD (COVID-19)
+        </div>
+        <div class="text-base font-bold text-dark_text text-center">
+            CÓMO MERCAR
+        </div>
+        <div class="text-base font-bold text-dark_text text-center">
+            PROVEEDORES
+        </div>
+        <div class="text-base font-bold text-dark_text text-center">
+            CONTÁCTENOS
+        </div>
+        <div class="text-base font-bold text-dark_text text-center">
+            ZONA DE COBERTURA
+        </div>
+    </div>
+    <div class="pb-9 flex flex-col items-center">
+        <div
+            class="h-[34px] w-[34px] mb-3 flex justify-center items-center bg-black rounded-full hover:cursor-pointer"
+        >
+            <img src="{% static 'instagram.svg' %}" alt="instagram" />
+        </div>
+        <div class="text-xs font-bold text-dark_text text-center">
+            POLÍTICA DE TRATAMIENTO DE DATOS PERSONALES
+        </div>
+    </div>
+    <div class="h-[47px] bg-dark_text"></div>
+</footer>

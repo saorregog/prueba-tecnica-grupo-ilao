@@ -1,0 +1,20 @@
+{% load static %}
+
+<button
+    x-on:click="openModal = true"
+    class="fixed bottom-2 left-1/2 -translate-x-1/2 py-1 px-4 flex flex-row items-center text-center border-2 border-white rounded bg-black"
+>
+    <div class="mr-1.5 text-base font-bold text-white">FILTRAR</div>
+    <img
+        src="{% static 'filters.svg' %}"
+        alt="filters"
+        class="h-[18px] w-[18px]"
+    />
+    <template x-if="filter !== '0'">
+        <div
+            class="h-[20px] w-[25px] ml-1.5 text-sm font-bold text-black border rounded-full bg-white"
+        >
+            1
+        </div>
+    </template>
+</button>

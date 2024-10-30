@@ -1,0 +1,106 @@
+{% load static %}
+
+<div
+    x-show="openModal"
+    x-collapse.duration.500ms
+    class="w-full fixed bottom-0 bg-white z-50 backdrop-opacity-30"
+>
+    <div class="relative">
+        <button
+            @click="openModal = false"
+            class="h-[40px] w-[40px] absolute -top-5 right-3 flex flex-row justify-center items-center border border-gray_border rounded bg-white"
+        >
+            <img
+                src="{% static 'close.svg' %}"
+                alt="close"
+                class="h-[20px] w-[20px]"
+            />
+        </button>
+        <div class="p-4">
+            <div
+                class="pb-2 text-lg font-bold text-dark_text border-b border-gray_border"
+            >
+                Filtros
+            </div>
+            <div
+                class="py-2 flex flex-row justify-between items-center border-b border-gray_border"
+            >
+                <label for="rubia" class="text-base font-normal">Rubia</label>
+                <input
+                    id="rubia"
+                    type="checkbox"
+                    name="filter"
+                    x-bind:checked="filter === '1'"
+                    x-on:click="filter = filter === '1' ? '0' : '1'"
+                    class="h-[20px] w-[20px] border"
+                />
+            </div>
+            <div
+                class="py-2 flex flex-row justify-between items-center border-b border-gray_border"
+            >
+                <label for="morena" class="text-base font-normal">Morena</label>
+                <input
+                    id="morena"
+                    type="checkbox"
+                    name="filter"
+                    x-bind:checked="filter === '2'"
+                    x-on:click="filter = filter === '2' ? '0' : '2'"
+                    class="h-[20px] w-[20px]"
+                />
+            </div>
+            <div
+                class="py-2 flex flex-row justify-between items-center border-b border-gray_border"
+            >
+                <label for="roja" class="text-base font-normal">Roja</label>
+                <input
+                    id="roja"
+                    type="checkbox"
+                    name="filter"
+                    x-bind:checked="filter === '3'"
+                    x-on:click="filter = filter === '3' ? '0' : '3'"
+                    class="h-[20px] w-[20px]"
+                />
+            </div>
+        </div>
+        <div
+            class="p-4 flex flex-row justify-between items-center bg-gray_button"
+        >
+            <button
+                type="button"
+                x-bind:disabled="filter === '0'"
+                x-on:click="filter = '0'; openModal = false"
+                hx-get="?filter=0"
+                hx-trigger="click"
+                hx-target="#product-list"
+                hx-swap="outerHTML"
+                class="w-[150px] p-2 text-base font-bold text-black border rounded bg-white"
+            >
+                LIMPIAR
+            </button>
+            <button
+                type="button"
+                x-on:click="openModal = false"
+                hx-get=""
+                x-bind:hx-vals="JSON.stringify({'filter': filter})"
+                hx-trigger="click"
+                hx-target="#product-list"
+                hx-swap="outerHTML"
+                class="w-[150px] p-2 flex flex-row justify-center items-center border rounded bg-black disabled:opacity-50"
+            >
+                <div class="mr-1.5 text-base font-bold text-white">FILTRAR</div>
+                <img
+                    src="{% static 'filters.svg' %}"
+                    alt="filter"
+                    class="h-[18px] w-[18px]"
+                />
+                <template x-if="filter !== '0'">
+                    <div
+                        class="h-[20px] w-[25px] ml-1.5 text-sm font-bold text-black border rounded-full bg-white"
+                    >
+                        1
+                    </div>
+                </template>
+            </button>
+        </div>
+    </div>
+</div>

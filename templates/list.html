@@ -1,10 +1,29 @@
 {% load static %}
 
-{% for product in products %}
-    <div class="flex flex-row">
-        {{ product.name }}<br>
-        {{ product.description }}<br>
-        {{ product.price }}<br>
-        <img src="{% static 'img/'|add:product.img %}" alt="{{ product.name }}" />
+<div id="product-list" class="mx-4 grid grid-cols-2 gap-4">
+    {% for product in products %}
+    <div class="flex flex-col">
+        <div class="pt-4 pb-3 px-3 border border-gray_border rounded-t">
+            <img
+                src="{% static 'img/'|add:product.img %}"
+                alt="{{ product.name }}"
+                class="mb-3"
+            />
+            <div class="mb-1 text-base font-bold text-dark_text">
+                {{ product.name }}
+            </div>
+            <div class="mb-2 h-[54px] text-xs font-normal text-gray_text">
+                {{ product.description }}
+            </div>
+            <div class="text-base font-semibold">
+                <span>$</span>{{ product.price }}
+            </div>
+        </div>
+        <button
+            class="p-1 text-base font-semibold text-black border-r border-b border-l border-gray_border rounded-b bg-gray_button"
+        >
+            AGREGAR
+        </button>
     </div>
-{% endfor %}
+    {% endfor %}
+</div>

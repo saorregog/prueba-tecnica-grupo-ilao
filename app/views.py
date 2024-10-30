@@ -16,7 +16,8 @@ class ProductListView(generic.TemplateView):
                 raise Http404('Should be an HTMX request')
 
             try:
-                products = [product for product in products if product['filterId'] == int(product_filter)]
+                if product_filter != '0':
+                    products = [product for product in products if product['filterId'] == int(product_filter)]
 
                 return render(
                     request,

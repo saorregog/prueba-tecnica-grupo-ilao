@@ -1,0 +1,23 @@
+{% load static %}
+
+<header class="sticky top-0 bg-dark_bg p-5 flex justify-between">
+    <div>
+        <img
+            src="{% static 'menu.svg' %}"
+            alt="burger menu"
+            class="hover:cursor-pointer"
+        />
+    </div>
+    <div class="flex">
+        <img
+            src="{% static 'search.svg' %}"
+            alt="search"
+            class="mr-3 hover:cursor-pointer"
+        />
+        <img
+            src="{% static 'cart.svg' %}"
+            alt="cart"
+            class="hover:cursor-pointer"
+        />
+    </div>
+</header>

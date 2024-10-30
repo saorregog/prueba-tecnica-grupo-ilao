@@ -7,13 +7,14 @@ module.exports = {
             center: true,
         },
         fontFamily: {
+            poppins: ['Poppins', 'sans-serif'],
             roboto: ['Roboto Flex', 'sans-serif'],
         },
         extend: {
             fontSize: {
                 xs: ['0.625rem', '1.125rem'],
                 sm: ['0.833rem', '1.25rem'],
-                base: ['1rem', '1.7rem'],
+                base: ['0.9rem', '1.7rem'],
                 lg: ['1.2rem', '2rem'],
                 xl: ['1.44rem', '2.125rem'],
                 '2xl': ['1.728rem', '2.5rem'],
@@ -25,6 +26,11 @@ module.exports = {
                 current: 'currentColor',
                 black: '#000000',
                 white: '#ffffff',
+                dark_bg: '#0F0F0F',
+                dark_text: '#101111',
+                gray_text: '#6D7275',
+                gray_border: '#E5E5E5',
+                gray_button: '#F4F4F4',
                 spacex: {
                     primary: {
                         50: '#FFF5EF',
@@ -72,7 +78,15 @@ module.exports = {
                 1000: '1000',
                 '-1': '-1',
             },
+            borderRadius: {
+                DEFAULT: '4px',
+            },
         },
+        variants:{
+            extend: {
+                textColor: ['opacity'],
+            }
+        }
     },
     plugins: [
         plugin(({ addUtilities, theme }) => {
